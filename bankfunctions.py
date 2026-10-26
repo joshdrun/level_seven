@@ -29,7 +29,7 @@ class BankAccount:
     
     def view_account_info(self):
         
-        print(f"Account balance: {self.balance}")
+        print(f"Account balance: ${self.balance:,.2f}")
 
     def quit(self):
         print("Exiting the program.")

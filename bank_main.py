@@ -25,9 +25,9 @@ while active:
             amount = float(input("Enter amount to deposit: "))
         except ValueError:
             print("Please enter a valid number.")
-
-        my_account.deposit(amount)
-        print(f"Account balance: ${my_account.balance:,.2f}")
+        else:
+            my_account.deposit(amount)
+            print(f"Account balance: ${my_account.balance:,.2f}")
     elif choice == "3":
         run_again = True
         while run_again:
@@ -37,6 +37,7 @@ while active:
                 print(f"Account balance: ${my_account.balance:,.2f}")
                 run_again = False
             except:
+                print("Please enter a valid number within your available balance.")
                 run_again = True
                 pass
     elif choice == "4":
