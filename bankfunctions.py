@@ -7,6 +7,10 @@ class BankAccount:
         
 
     def withdraw(self, amount):
+        if amount <= 0:
+            print("Amount must be greater than zero.")
+            return
+        
         if amount > self.balance:
             print("Insufficient funds, try again")
             raise ValueError("The provided value is invalid.")
@@ -16,6 +20,10 @@ class BankAccount:
         return self.balance
         
     def deposit(self, amount):
+        if amount <= 0:
+            print("Amount must be greater than zero.")
+            return
+
         self.balance += amount
         return self.balance
     
@@ -25,4 +33,4 @@ class BankAccount:
 
     def quit(self):
         print("Exiting the program.")
-        exit()
+

@@ -1,11 +1,12 @@
 from bankfunctions import BankAccount
 import random
 
-my_account = BankAccount(0)
+
 
 active = True
 
 name_user = input("Enter your name: ")
+my_account = BankAccount(0)
 account_number = random.randint(10000000, 99999999)
 
 while active:
@@ -20,14 +21,20 @@ while active:
         print(f"Account Number: {account_number}")
         my_account.view_account_info()
     elif choice == "2":
-        amount = float(input("Enter amount to deposit: "))
+        try:
+            amount = float(input("Enter amount to deposit: "))
+        except ValueError:
+            print("Please enter a valid number.")
+
         my_account.deposit(amount)
+        print(f"Account balance: ${my_account.balance:,.2f}")
     elif choice == "3":
         run_again = True
         while run_again:
             try:
                 amount = float(input("Enter amount to withdraw: "))
                 my_account.withdraw(amount)
+                print(f"Account balance: ${my_account.balance:,.2f}")
                 run_again = False
             except:
                 run_again = True
